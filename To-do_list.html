@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>To Do List</title>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+	<style type="text/css">
+		i{
+			margin-left:260px;
+			margin-top:3px;
+			
+		}
+	.box
+	{
+        border-style:solid;
+        width:400px;
+        height:400px;
+        margin-left:450px;
+        margin-top:100px;
+        background-color:black;
+	}
+	.list1
+	{
+	width:300px; 
+	height:30px; 
+	margin-left:30px;
+	background-color:white;
+	border-style:solid;
+	border-color:deeppink;
+	color:black;	
+	}
+	.fa-trash
+	 {
+    cursor: pointer;
+    color: red;
+     }
+	</style>
+
+	<script type="text/javascript">
+		function adding()
+		{
+
+           var task=document.getElementById("task").value;
+           if(task=="")
+           {
+           	alert("please enter any task!");
+           }
+           else
+           {
+           	             //box adding
+					var box1=document.createElement("div");
+					box1.classList.add("list1");
+                      //text adding
+					 var text=document.createElement("span");
+					 text.innerText=task;
+					 //trashbin adding
+					 var trashbin=document.createElement("i");
+					 trashbin.classList.add("fa-solid", "fa-trash");
+					 trashbin.classList.add("i");
+					 //text + trashbin icon adding to box
+					 box1.appendChild(text);
+					 box1.appendChild(trashbin);
+					 document.getElementById("list").appendChild(box1);
+					 trashbin.onclick = function() {
+                          box1.remove();
+        }
+           }
+		}
+	</script>
+
+	
+</head>
+<body>
+		<div class="box">
+	<center><h1 style="color:deeppink;">To Do List</h1></center>
+	<form>
+		<input type="text" id="task" style="width:250px; height:30px; margin-left:30px;">&nbsp
+		<input type="button" onclick="adding()" name="submit" value="ADD" style="width:50px; height:30px; margin-left:5px;background-color:deeppink; color:black;font-weight:bold;">
+	</br>
+	</br>
+
+	<div id="list"> 
+	</div> 
+
+	</div>
+
+
+</body>
+</html>
